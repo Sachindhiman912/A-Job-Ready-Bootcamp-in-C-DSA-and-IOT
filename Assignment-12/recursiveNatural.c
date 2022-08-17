@@ -2,8 +2,10 @@
 void nature(int);
 int main()
 {
-    int a;
-   nature(50);
+    int x;
+    printf("Enter a number :");
+    scanf("%d",&x);
+   nature(x);
 }
 void nature(int n)
 {
