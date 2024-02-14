@@ -1,38 +1,58 @@
-#include<iostream>
+//{ Driver Code Starts
+// Initial template for C++
+
+#include <bits/stdc++.h>
 using namespace std;
-int main()
-{
-	int a,b,c;
-	cout<<"enter two numbers :"<<endl;
-	cin>>a>>b;
-	try
-	{
-		
-		if(b==0)
-		{
-			throw "divide by 0 is invalid";
-		}
-		if(b==1)
-		{
-			throw b;
-		}
-		if(b==2)
-		{
-			throw exception();
-		}
-		c=a/b;
-	}
-	catch(const char *msg)
-	{
-		cout<<msg<<endl;
-	}
-	catch(int a)
-	{
-		cout<<"Mere marzi!"<<endl;
-	}
-	catch(...)
-	{
-		//exception();
-	}
-	cout<<"result is "<<c<<endl;
+
+
+// } Driver Code Ends
+// User function template for C++
+
+class Solution {
+  public:
+    int binarysearch(int arr[], int n, int k) {
+        // code here
+        int beg=0,end=n-1,mid;
+        while(beg<=end)
+        {
+            mid=(beg+end)/2;
+            if(arr[mid]==k)
+            {
+                return mid;
+            }
+            else if(k>arr[mid])
+            {
+                beg=mid+1;
+            }
+            else if(k<arr[mid])
+            {
+                end=mid-1;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+    }
+};
+
+//{ Driver Code Starts.
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int N;
+        cin >> N;
+        int arr[N];
+        for (int i = 0; i < N; i++) cin >> arr[i];
+        int key;
+        cin >> key;
+        Solution ob;
+        int found = ob.binarysearch(arr, N, key);
+        cout << found << endl;
+    }
 }
+
+// } Driver Code Ends
+
